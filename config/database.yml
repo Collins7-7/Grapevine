@@ -81,6 +81,7 @@ test:
 #
 production:
   <<: *default
-  database: Grapevine_production
-  username: Grapevine
-  password: <%= ENV["GRAPEVINE_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>
+  # database: Grapevine_production
+  # username: Grapevine
+  # password: <%= ENV["GRAPEVINE_DATABASE_PASSWORD"] %>
