@@ -5,6 +5,7 @@ import Single from "./pages/single/Single";
 import Write from "./pages/write/Write";
 import Settings from "./pages/settings/Settings";
 import Login from "./pages/login/Login";
+import Signup from "./pages/signup/Signup";
 
 function App() {
   const [page, setPage] = useState("null");
@@ -18,7 +19,7 @@ function App() {
   return (
     <>
     <TopBar/>
-    <Login/>
+    <Signup/>
     </>
   );
 }
