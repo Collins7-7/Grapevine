@@ -10,7 +10,7 @@ export default function Settings() {
                 <span className="settingsDeleteTitle">Delete Account</span>
             </div>
             <form className="settingsForm">
-                <label> Profile Pic</label>
+                <label> Profile Picture</label>
                 <div className="settingsPP">
                     <img src="https://images.unsplash.com/photo-1536356953159-9043c2260bba?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="" />
                     <label htmlFor="fileInput">
