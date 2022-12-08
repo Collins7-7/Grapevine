@@ -7,10 +7,12 @@ import Settings from "./pages/settings/Settings";
 import Login from "./pages/login/Login";
 import Signup from "./pages/signup/Signup";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { Context } from "./context/Context";
+import {useContext} from "react"
 
 function App() {
   
-  const user = false;
+  const {user} = useContext(Context); 
 
 
   return (

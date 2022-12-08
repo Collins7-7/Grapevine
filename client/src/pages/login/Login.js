@@ -1,47 +1,56 @@
-import { useContext } from "react";
-import { Link } from "react-router-dom"
+import axios from "axios";
+import { useContext, useRef } from "react";
+import { Link } from "react-router-dom";
 import { Context } from "../../context/Context";
-import "./login.css"
+import "./login.css";
 
 export default function Login() {
+  const userRef = useRef();
+  const passwordRef = useRef();
+  const { dispatch, isFetching } = useContext(Context);
 
-  const userRef = userRef();
-  const passWordRef = userRef();
-  const {user, dispatch, isFetching} = useContext(Context)
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    dispatch({ type: "LOGIN_START" });
+    try {
+      const res = await axios.post("/login", {
+        username: userRef.current.value,
+        password: passwordRef.current.value,
+      });
+      dispatch({ type: "LOGIN_SUCCESS", payload: res.data });
+    } catch (err) {
+      dispatch({ type: "LOGIN_FAILURE" });
+    }
+  };
 
-  // const handleSubmit= (e)=> {
-  //   e.preventDefault();
-  //   dispatch({type:"LOGIN_START"});
-  //     fetch("/login", {
-  //       method: "POST",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //       },
-  //       body: JSON.stringify({username: userRef.current.value, password: passWordRef.current.value})
-  //     }).then((response) => {
-  //       if (response.ok){
-  //         response.json().then((data)=> dispatch({type:"LOGIN_SUCCESS", payload: data}));
-  //       }else {
-  //         response.json().then((errorData)=> dispatch({type: "LOGIN_FAILURE"}));
-  //       }
-  //     });
-    
-  // };
 
-  console.log(user);
-    return (
-    <div className='login'>
-        <span className="loginTitle" onSubmit={handleSubmit}>Login</span>
-        <form className="loginForm">
-            <label>Username</label>
-            <input className="loginInput" type="text" placeholder="Enter username..." ref={userRef}/>
-            <label>Password</label>
-            <input className="loginInput" type="password" placeholder="Enter password..." ref={passWordRef}/>
-            <button className="loginButton"  type="submit">Login</button>
-        </form>
-        <button className="signupButton">
-          <Link className="link" to="/signup">Signup</Link>
+  return (
+    <div className="login">
+      <span className="loginTitle">Login</span>
+      <form className="loginForm" onSubmit={handleSubmit}>
+        <label>Username</label>
+        <input
+          type="text"
+          className="loginInput"
+          placeholder="Enter your username..."
+          ref={userRef}
+        />
+        <label>Password</label>
+        <input
+          type="password"
+          className="loginInput"
+          placeholder="Enter your password..."
+          ref={passwordRef}
+        />
+        <button className="loginButton" type="submit" disabled={isFetching}>
+          Login
         </button>
+      </form>
+      <button className="signupButton">
+        <Link className="link" to="/signup">
+          Signup
+        </Link>
+      </button>
     </div>
-  )
+  );
 }
