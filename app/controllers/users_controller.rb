@@ -3,8 +3,13 @@ class UsersController < ApplicationController
 rescue_from ActiveRecord::RecordInvalid, with: :valid_user
 
 before_action :authorize
-skip_before_action :authorize, only:[:create]
+skip_before_action :authorize, only:[:create, :index]
 
+
+    def index
+        users = User.all
+        render json: users
+    end
     def create
         user = User.create!(user_params)
         session[:user_id] = user.id

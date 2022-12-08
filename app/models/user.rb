@@ -6,5 +6,6 @@ class User < ApplicationRecord
     has_many :categories, through: :posts
 
     validates :username, presence: true, uniqueness: true
-    validates :password_digest, presence: true, uniqueness: true
+    validates :password, presence: true
+    validates :profile_pic, presence: false
 end

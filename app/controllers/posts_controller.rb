@@ -1,9 +1,10 @@
 class PostsController < ApplicationController
+    wrap_parameters true
 
 rescue_from ActiveRecord::RecordInvalid, with: :valid_user
 
     before_action :authorize
-    skip_before_action :authorize, only:[:index]
+    skip_before_action :authorize, only:[:index, :show]
 
     def index 
         posts = Post.all
@@ -31,7 +32,7 @@ rescue_from ActiveRecord::RecordInvalid, with: :valid_user
 
     def show
         post = Post.find_by(id: params[:id])
-        render json: post
+        render json: post, serializer: PostUsernameSerializer 
     end
 
     private 

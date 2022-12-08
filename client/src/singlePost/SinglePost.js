@@ -1,22 +1,50 @@
+import { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom"
 import "./singlePost.css"
 
 export default function SinglePost() {
+  const location = useLocation();
+  const path = location.pathname.split("/")[2];
+
+  const [post, setPost] = useState({})
+  
+  async function fetchPosts(){
+    const response = await fetch("/posts/"+ path)
+    const data = await response.json()
+    setPost(data)}
+
+  useEffect(()=> {
+   fetchPosts()
+    },[])
+
+    console.log(post.user)
+
+    
+
   return (
     <div className= "singlePost">
         <div className="singlePostWrapper">
-            <img src="https://images.unsplash.com/photo-1618365908648-e71bd5716cba?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="" className="singlePostImg" />
+          {post.photo && (
+            <img src={post.photo} />
+          )}
+            
             <h1 className="singlePostTitle">
-                It will be as it is meant to be.
+                {post.title}
                 <div className="singlePostEdit">
                 <i className="singlePostIcon fa-solid fa-trash"></i>
                 <i class="singlePostIcon fa-solid fa-pen-to-square"></i>
                 </div>
             </h1>
             <div className="singlePostInfo">
-                <span className="singlePostAuthor">Author: <b>Collins</b></span>
-                <span className="singlePostDate"> 2 hours ago</span>
+                <span className="singlePostAuthor">
+                Author: 
+                <Link to={`/${post.user_id}`} className="link">
+                <b>{post.user_id}</b>
+                </Link>
+                </span>
+                <span className="singlePostDate">{new Date(post.created_at).toDateString}</span>
             </div>
-            <p className="singlePostDesc">Some example word just to so...</p>
+            <p className="singlePostDesc">{post.description}</p>
         </div>
     </div>
   )

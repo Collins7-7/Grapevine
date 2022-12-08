@@ -8,7 +8,7 @@ class SessionController < ApplicationController
         else
           render json: {errors: ["Not authorized"]}, status: :unauthorized
         end
-      end
+    end
     
       def destroy
         return render json: {errors:["Not authorized"]}, status: :unauthorized unless session.include? :user_id
