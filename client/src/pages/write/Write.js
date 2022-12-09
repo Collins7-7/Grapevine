@@ -10,7 +10,7 @@ export default function Write() {
   // const [file, setFile] = useState(null);
   const {user} = useContext(Context);
   const [photo, setPhoto] = useState("")
-  const [categoryId, setCategoryId]= useState(null) 
+  const [categoryId, setCategoryId]= useState("") 
 
   const [errors, setErrors] = useState([]);
 
@@ -19,7 +19,7 @@ export default function Write() {
     title,
     description,
     photo,
-    category_id: categoryId
+    category_id: categoryId,
   };
 
   function handleSubmit(e) {
@@ -40,47 +40,49 @@ export default function Write() {
   }
 
   const handleCategoryChange = (e) => {
-    if (e.target.value === 'Movie') {
+    if (e.target.value === 'Life') {
       setCategoryId(1)
-    } else if (e.target.value === 'Music') {
-      setCategoryId(2)
-    } else if (e.target.value === 'Fashion') {
-      setCategoryId(3)
     } else if (e.target.value === 'Sport') {
-      setCategoryId(4)
-    } else if (e.target.value === 'Life') {
-      setCategoryId(5)
+      setCategoryId(2)
     } else if (e.target.value === 'Tech') {
+      setCategoryId(3)
+    } else if (e.target.value === 'Movie') {
+      setCategoryId(4)
+    } else if (e.target.value === 'Music') {
+      setCategoryId(5)
+    } else if (e.target.value === 'Fashion') {
       setCategoryId(6)
-    } }
+    } };
+
   return (
     <div className="write">
-      {photo && (
+      {/* {photo && (
         <img className="writeImg" src={URL.createObjectURL(photo)} alt="" />
-      )}
+      )} */}
         <form className="writeForm" onSubmit={handleSubmit}>
             <div className="writeFormGroup">
               <label htmlFor="fileInput">
-              <i className="writeIcon fa-solid fa-plus"></i>
+              {/* <i className="writeIcon fa-solid fa-plus"></i> */}
               </label>
                 {/* <input type="file" id="fileInput" style={{display: "none"}} onChange={e => setFile(e.target.files[0])}/> */}
-                <input type="text" placeholder="Add photo "onChange={e=> setPhoto(e.target.value)}/>
-                <div className='filter'>
-                <select 
+                <input type="text" className="photobox" placeholder="Add photo" onChange={(e)=> setPhoto(e.target.value)}/>
+                <div >
+                <select
+                className='filter'
                 name="categoryId" 
                 id="categoryId"
-                onChange={ handleCategoryChange}
+                onChange={handleCategoryChange}
                 >
-                    <option value="Movie" > Movie</option>
-                    <option value="Music">Music</option>
-                    <option value="Fashion">Fashion</option>
-                    <option value="Sport">Sport</option> 
-                    <option value="Life">Life</option> 
-                    <option value="Tech">Tech</option> 
+                    <option value="Life"> Life</option>
+                    <option value="Sport"> Sport</option>
+                    <option value="Tech"> Tech</option>
+                    <option value="Movie"> Movie</option> 
+                    <option value="Music"> Music</option> 
+                    <option value="Fashion"> Fashion</option> 
                   </select> 
-                    </div>
+                  </div>
                 <input type="text" placeholder="Title" className="writeInput" autoFocus={true}
-                onChange={e=> setTitle(e.target.value)}/>
+                onChange={(e)=> setTitle(e.target.value)}/>
             </div>
             <div className="writeFormGroup">
               <textarea placeholder="Your story..." type="text" className="writeInput writeText"
