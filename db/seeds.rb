@@ -1,6 +1,6 @@
 puts "seeding user"
 
-User.create!(username: "Collo", email: "Collins@gmail.com", password_digest: "123", profile_pic: "https://images.unsplash.com/photo-1606459431839-90b942dc3754?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80")
+User.create(username: "Collo", email: "Collins@gmail.com", password_digest: "123", profile_pic: "https://images.unsplash.com/photo-1606459431839-90b942dc3754?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80")
 
 User.create(username: "Sam", email: "Sam@gmail.com", password_digest: "123", profile_pic: "https://images.unsplash.com/photo-1578758803946-2c4f6738df87?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80")
 
@@ -17,7 +17,7 @@ Category.create(name:"Fashion")
 
 puts "seeding posts"
 
-Post.create!(title: "Top Rated", description:"James Bond is a fictional character created by British novelist Ian Fleming in 1953. A British secret agent working for MI6 under the codename 007, Bond has been portrayed on film in twenty-seven productions by actors Sean Connery, David Niven, George Lazenby, Roger Moore, Timothy Dalton, Pierce Brosnan, and Daniel Craig. Eon Productions, which now holds the adaptation rights to all of Fleming's Bond novels, made all but two films in the film series...", photo:"https://images.unsplash.com/photo-1616530940355-351fabd9524b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1335&q=80", user_id: 1, category_id: 4)
+Post.create(title: "Top Rated", description:"James Bond is a fictional character created by British novelist Ian Fleming in 1953. A British secret agent working for MI6 under the codename 007, Bond has been portrayed on film in twenty-seven productions by actors Sean Connery, David Niven, George Lazenby, Roger Moore, Timothy Dalton, Pierce Brosnan, and Daniel Craig. Eon Productions, which now holds the adaptation rights to all of Fleming's Bond novels, made all but two films in the film series...", photo:"https://images.unsplash.com/photo-1616530940355-351fabd9524b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1335&q=80", user_id: 1, category_id: 4)
 
 Post.create(title: "Adele", description:"Adele Laurie Blue Adkins MBE, professionally known by the mononym Adele, is an English singer and songwriter. After graduating in arts from the BRIT School in 2006, Adele signed...", photo:"https://images.unsplash.com/photo-1635491512913-bd473a066d1d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1368&q=80", user_id: 2, category_id: 5)
 
