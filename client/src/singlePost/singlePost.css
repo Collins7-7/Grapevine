@@ -4,6 +4,15 @@
 .singlePostWrapper{
     padding: 20px;
     padding-right: 0;
+    /* width: 150px;
+    border-radius: 10px; */
+}
+
+.singlePostPic{
+    width: 90%;
+    height: 50vh;
+    object-fit: cover;
+    border-radius: 7px;
 }
 
 .singlePostImg{
