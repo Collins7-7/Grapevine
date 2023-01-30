@@ -48,7 +48,7 @@ export default function TopBar() {
         {user ? (
           <img
             className="topImg"
-            src="https://images.unsplash.com/photo-1565945887714-d5139f4eb0ce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+            src={user.profile_pic}
             alt=""
           />
         ) : (

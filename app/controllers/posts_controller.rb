@@ -20,14 +20,20 @@ rescue_from ActiveRecord::RecordInvalid, with: :valid_user
 
     def update
         user = User.find_by(id: session[:user_id])
-        post = user.posts.update(update_params)
-        render json:post, status: :Ok
+        post = user.posts.find(params[:id])
+        post = post.update(update_params)
+        render json:post, status: :ok
     end
 
     def destroy
-        post = Post.find_by(id: params[:id])
+        user = User.find_by(id: session[:user_id])
+        
+        post = user.posts.find(params[:id])
         post.destroy
-        render json: {}
+        render json:{}
+        # post = Post.find_by(id: params[:id])
+        # post.destroy
+        # render json: 
     end
 
     def show

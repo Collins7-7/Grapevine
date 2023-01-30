@@ -31,8 +31,12 @@ export default function Signup() {
         response.json().then((errorData)=> setError(errorData.errors));
       }
     });
+    setUsername("");
+  setEmail('');
+  setPassword('');
+  };
 
-  }
+
   return (
     <div className="signup">
         <span className="signupTitle">Signup</span>

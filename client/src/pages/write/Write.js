@@ -32,7 +32,9 @@ export default function Write() {
       body: JSON.stringify(newPost),
     }).then((response) => {
       if (response.ok) {
-        response.json().then((data) => setTitle(data.title) && setDescription(data.description))
+        response.json().then((data) => setTitle(data.title) && setDescription(data.description));
+        // window.location.replace("/posts/" + response.data._id);
+        window.location.replace("/");
       } else {
         response.json().then((errorData) => setErrors(errorData.errors));
       }
