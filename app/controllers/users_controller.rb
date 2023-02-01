@@ -32,7 +32,7 @@ skip_before_action :authorize, only:[:create, :index]
     def update
         user = User.find_by(id: session[:user_id])
         user.update!(update_params)
-        render json: user, status: :Ok
+        render json: user, status: :ok
     end
 
     private 
@@ -48,6 +48,6 @@ skip_before_action :authorize, only:[:create, :index]
     end
 
     def update_params
-        params.permit(:username, :profile_pic)
+        params.permit(:username, :profile_pic, :email, :password_digest)
     end
 end
