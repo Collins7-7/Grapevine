@@ -41,6 +41,7 @@ export default function Write() {
     });
   }
 
+
   const handleCategoryChange = (e) => {
     if (e.target.value === 'Life') {
       setCategoryId(1)
@@ -75,6 +76,7 @@ export default function Write() {
                 id="categoryId"
                 onChange={handleCategoryChange}
                 >
+                    <option >Category</option>
                     <option value="Life"> Life</option>
                     <option value="Sport"> Sport</option>
                     <option value="Tech"> Tech</option>

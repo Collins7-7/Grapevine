@@ -31,6 +31,11 @@ export default function Settings() {
       } catch (err) {
         dispatch({ type: "UPDATE_FAILURE" });
       }
+
+      setUsername("");
+      setEmail("");
+      setPassword("");
+      setProfilePic("");
     };
     console.log(user);
     
@@ -40,7 +45,7 @@ export default function Settings() {
         <div className="settingsWrapper">
             <div className="settingsTitle">
                 <span className="settingsUpdateTitle">Update Your account</span>
-                <span className="settingsDeleteTitle">Delete Account</span>
+                {/* <span className="settingsDeleteTitle">Delete Account</span> */}
             </div>
             <form className="settingsForm" onSubmit={handleSubmit}>
                 <label> Profile Picture</label>

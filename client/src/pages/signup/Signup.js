@@ -27,13 +27,14 @@ export default function Signup() {
     }).then((response) => {
       if (response.ok){
         response.json().then((data)=> data && window.location.replace("/login"));
+        setUsername("");
+        setEmail("");
+        setPassword("");
       }else {
         response.json().then((errorData)=> setError(errorData.errors));
       }
     });
-    setUsername("");
-  setEmail('');
-  setPassword('');
+    
   };
 
 
