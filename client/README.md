@@ -1,70 +1,28 @@
-# Getting Started with Create React App
+# GRAPEVINE
+**Grapevine** is a blog application built using Ruby on Rails for the backend and React for the frontend.
+A user can be able to see the posts in the blog, but to be able to view a single post in it's entirety they have to be logged in. A user has the ability to perform several CRUD functionalities once logged in, the user can write and publish a blog post, edit their own blog posts and even delete their own blog posts if the want to. 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A user can be able to update their profile details like their profile picture, username, email and password.
+A user can also log out of the account and since they signed up, their details get stored in the database and so they can log back in with their details whenever they feel like it.
 
-## Available Scripts
+## LINK
+Here is a link to a video show casing the functionalities of the application [**GRAPEVINE**](https://watch.screencastify.com/v/Osm5A8CCmkIVVnbzuN7S)
 
-In the project directory, you can run:
+## Technology
+- ReactJS
+- Ruby on Rails(API)
+- PostgreSQL
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+# Getting Started 
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Prerequisites
 
-### `npm test`
+You need an IDE of your choice (preferably Visual Studio Code). You will need a browser (preferably Chrome) to view the webpage. You need to have installed npm and JSON-server on your local machine.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# Set up
 
-### `npm run build`
+The application interacts with its backend via a RESTful API where it allows a user to Create, Read,Update and Delete data via the methods POST, GET, PATCH/PUT and DELETE 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+To see the application live in your local host, you need to clone via https or ssh. After a successful clone, you move into the project directory and run **npm install** to install the required node modules and **bundle install** to install the necessary dependencies.
+Then you run the command: **rails s** to fire up the server then in another terminal run **npm start --prefix client** to open the application in the browser.
